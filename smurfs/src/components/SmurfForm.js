@@ -2,6 +2,25 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { postSmurf } from '../store/actions';
 import Loader from 'react-loader-spinner';
+import styled from 'styled-components';
+
+const Styles = styled.div`
+    .form-container {
+        border: 2px solid white;
+        border-radius: 10px;
+        margin: 60px 10%;
+        box-shadow: 0px 15px 25px rgba(0,0,0,.6);
+    }
+
+    .smurf-inputs {
+        display: flex;
+        flex-direction: column
+    }
+
+    label {
+        padding: 15px;
+    }
+`
 
 const initialSmurfValues = {
     name: '',
@@ -50,42 +69,44 @@ function SmurfForm(props) {
 
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-            <div className='smurf-inputs'>
-                    <label>
-                        Name
-                        <input 
-                            type='text' 
-                            name='name' 
-                            onChange={handleChanges} 
-                            value={smurf.name}
-                        />
-                    </label>
-                    <label>
-                        Age
-                        <input 
-                            type='number' 
-                            name='age' 
-                            onChange={handleChanges} 
-                            value={smurf.age}
-                        />
-                    </label>
-                    <label>
-                        Height
-                        <input 
-                            type='text' 
-                            name='height' 
-                            onChange={handleChanges} 
-                            value={smurf.height}
-                        />
-                    </label>                    
-                </div>
-                <div className='loader-button-container'>
-                    <button>{isLoading ? renderLoader() : 'Add new smurf!'}</button>
-                </div>
-            </form>
-        </div>
+        <Styles>
+            <div className='form-container'>
+                <form onSubmit={handleSubmit}>
+                <div className='smurf-inputs'>
+                        <label>
+                            Name
+                            <input 
+                                type='text' 
+                                name='name' 
+                                onChange={handleChanges} 
+                                value={smurf.name}
+                            />
+                        </label>
+                        <label>
+                            Age
+                            <input 
+                                type='number' 
+                                name='age' 
+                                onChange={handleChanges} 
+                                value={smurf.age}
+                            />
+                        </label>
+                        <label>
+                            Height
+                            <input 
+                                type='text' 
+                                name='height' 
+                                onChange={handleChanges} 
+                                value={smurf.height}
+                            />
+                        </label>                    
+                    </div>
+                    <div className='loader-button-container'>
+                        <button>{isLoading ? renderLoader() : 'Add new smurf!'}</button>
+                    </div>
+                </form>
+            </div>
+        </Styles>
     )
 }
 
