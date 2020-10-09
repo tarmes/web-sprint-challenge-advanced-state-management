@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import SmurfDisplay from './SmurfDisplay';
+import SmurfForm from "./SmurfForm";
 
 class App extends Component {
 
@@ -8,6 +9,7 @@ class App extends Component {
     return (
       <div className="App">
         <SmurfDisplay />
+        <SmurfForm />
       </div>
     );
   }

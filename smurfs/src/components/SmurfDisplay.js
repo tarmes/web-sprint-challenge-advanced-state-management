@@ -11,9 +11,8 @@ function SmurfDisplay(props) {
 
     return (
         <div>
-            <h1>hello</h1>
             {smurfs.map((smurf) => (
-                <div>
+                <div key={smurf.name}>
                     <h1>{smurf.name}</h1>
                     <p>{smurf.age}</p>
                     <p>{smurf.height}</p>

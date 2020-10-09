@@ -1,4 +1,9 @@
-import { FETCH_SMURFS_START, FETCH_SMURFS_SUCCESS } from '../actions/index';
+import { 
+    FETCH_SMURFS_START, 
+    FETCH_SMURFS_SUCCESS,
+    POST_SMURF_START,
+    POST_SMURF_SUCCESS 
+    } from '../actions/index';
 
 const initialState = {
     isLoading: false,
@@ -14,6 +19,19 @@ export const reducer = (state = initialState, action) => {
                 isLoading: true
             };
         case FETCH_SMURFS_SUCCESS:
+            return {
+                ...state,
+                isLoading: false,
+                isLoaded: true,
+                smurfs: action.payload
+            }
+        case POST_SMURF_START:
+            return {
+                ...state,
+                isLoading: true,
+                isLoaded: false,
+            }
+        case POST_SMURF_SUCCESS:
             return {
                 ...state,
                 isLoading: false,
